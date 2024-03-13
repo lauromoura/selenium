@@ -310,6 +310,20 @@ limitations under the License.
       var table = getVisibleTextByElementId('wrappingtd');
       assertEquals('beforeSpace afterSpace', table);
     }
+
+    function testOverflowHiddenAndFullyVisible() {
+      var text = getVisibleTextByElementId('withOverflowHiddenAndFullyVisible');
+      assertEquals('Overflow hidden and fully visible', text);
+    }
+    function testOverflowHiddenAndPartiallyVisible() {
+      var text = getVisibleTextByElementId('withOverflowHiddenAndPartiallyVisible');
+      assertEquals('Overflow hidden partially visible', text);
+    }
+    function testOverflowHiddenAndFullyHidden() {
+      var text = getVisibleTextByElementId('withOverflowHiddenAndFullyHidden');
+      assertEquals('', text);
+    }
+
   </script>
 
   <style type="text/css">
@@ -431,6 +445,10 @@ limitations under the License.
     <a id="capitalized-7" style="text-transform: capitalize">(this) “is” [a] –short– -test- «for» *the* _css_ ¿capitalize? ?¡transfor</a><br/>
     <a id="capitalized-8" style="text-transform: capitalize">The Dutch word: "ijsland" starts with a digraph</a><br/>
   </div>
+
+  <div id="withOverflowHiddenAndFullyVisible" style="overflow:hidden">Overflow hidden and fully visible</div>
+  <div id="withOverflowHiddenAndPartiallyVisible" style="overflow:hidden; height:1em">Overflow hidden partially visible<br>Overflow hidden actually hidden portion</div>
+  <div id="withOverflowHiddenAndFullyHidden" style="overflow:hidden; height:0">Overflow hidden fully hidden</div>
 
 </body>
 </html>
